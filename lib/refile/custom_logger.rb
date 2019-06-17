@@ -3,7 +3,8 @@ require "rack/body_proxy"
 module Refile
   # @api private
   class CustomLogger
-    LOG_FORMAT = %(%s: [%s] %s "%s%s" %d %0.1fms\n)
+    # LOG_FORMAT = %(%s: [%s] %s "%s%s" %d %0.1fms\n)
+    LOG_FORMAT= %({"invoker": "%s", "time": "%s", "method": "%s", "path": "%s", "params": "%s", "status": %d, "duration": %0.1f})
 
     def initialize(app, prefix, logger_proc)
       @app = app
