@@ -165,7 +165,8 @@ module Refile
     end
 
     def log_error(message)
-      logger.error {invoker: self.class.name, message: message}.to_json
+      h = { invoker: self.class.name, message: message }
+      logger.error h.to_json
     end
 
     def verified?
